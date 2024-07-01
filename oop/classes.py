@@ -120,4 +120,10 @@ class Circle:
     def calculate_area(self):
         return round(math.pi * self._radius**2, 2)
 
+print("##### Propetry ######")
+
+c=Circle(4)
+print(c.calculate_area())
+c.radius=5#-5 gives value error 
+print(c.calculate_area())
 
