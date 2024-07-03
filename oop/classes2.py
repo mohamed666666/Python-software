@@ -125,3 +125,18 @@ class ThreeDPoint:
 
     def __repr__(self):
         return f"{type(self).__name__}({self.x}, {self.y}, {self.z})"
+    
+
+
+# Encabsulation 
+
+
+class Bird:
+    def __init__(self, name):
+        self.set_name(name)
+
+    def get_name(self):
+        return self._name
+
+    def set_name(self, value):
+        self._name = value  #the _name attr is protected attr now so you encabsulate 
