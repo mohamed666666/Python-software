@@ -136,7 +136,11 @@ class Bird:
         self.set_name(name)
 
     def get_name(self):
-        return self._name
+        return self.__name
 
     def set_name(self, value):
-        self._name = value  #the _name attr is protected attr now so you encabsulate 
+        self.__name = value  #the _name attr is protected attr now so you encabsulate 
+
+b=Bird('FINIK')
+
+print(b.get_name())
