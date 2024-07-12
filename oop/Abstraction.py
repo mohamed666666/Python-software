@@ -25,3 +25,5 @@ print(s.get_perimeter())
 
 print(type(s))
 print(dir(s))
+
+
