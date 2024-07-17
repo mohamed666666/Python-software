@@ -84,6 +84,13 @@ class PaypalPaymentProcessor(PaymentProcessor):
         print(f"Verifying email: {security_code}")
         order.set_stauts ("paid")
 
+#applying strategy pattern 
+class PaymentManager2:
+    def __init__(self , PaymentProcessor:PaymentProcessor) -> None:
+        self.PaymentProcessor=PaymentProcessor
+    def paying(slef , ord,secty_code):
+        slef.PaymentProcessor.pay(order=ord,security_code=secty_code)
+        
 
 order = NewOrder()
 
@@ -93,4 +100,25 @@ order.add_item("USB cable", 2, 5)
 
 processor = CreditCardPaymentProcessor()
 processor.pay(order, "0372846")
+p=DebitCardPaymentProcessor()
+p.pay(order, "0372846")
 print(order.get_stat())
+
+
+paymemtmanager=PaymentManager2(DebitCardPaymentProcessor())
+paymemtmanager.paying(order, "1452846")
+"""
+output :
+
+210
+Processing debit payment type
+Verifying security code: 0372846
+Processing credit card payment
+Verifying security code: 0372846
+Processing debit card payment
+Verifying security code: 0372846
+paid
+Processing debit card payment
+Verifying security code: 1452846
+
+"""
